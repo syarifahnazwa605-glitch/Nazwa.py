@@ -1,0 +1,42 @@
+# 1. Input Data: Nama barang dan jumlah stok awal
+nama_barang = input("Masukkan nama barang: ")
+stok = int(input("Masukkan jumlah stok awal: "))
+
+# 5. Perulangan agar dapat melakukan transaksi berkali-kali
+while True:
+    print(f"\n--- Menu Transaksi ({nama_barang}) ---")
+    print(f"Stok saat ini: {stok}")
+    print("1. Barang Masuk")
+    print("2. Barang Keluar")
+    print("3. Selesai")
+
+    # 2. Pilih Transaksi
+    pilihan = input("Pilih jenis transaksi (1/2/3): ")
+
+    # 3. Proses Transaksi menggunakan percabangan
+    if pilihan == "1":
+        jumlah_masuk = int(input("Masukkan jumlah barang masuk: "))
+        stok += jumlah_masuk
+        print(f"Berhasil menambahkan {jumlah_masuk} {nama_barang}.")
+
+    elif pilihan == "2":
+        jumlah_keluar = int(input("Masukkan jumlah barang keluar: "))
+
+        # 4. Cek Stok sebelum mengurangi
+        if jumlah_keluar > stok:
+            print("Stok Tidak Mencukupi")
+        else:
+            stok -= jumlah_keluar
+            print(f"Berhasil mengeluarkan {jumlah_keluar} {nama_barang}.")
+
+    elif pilihan == "3":
+        # Keluar dari perulangan jika transaksi selesai
+        break
+
+    else:
+        print("Pilihan tidak valid. Silakan pilih 1, 2, atau 3.")
+
+# 6. Tampilkan Hasil akhir setelah transaksi selesai
+print("\n=== Laporan Akhir Stok Barang ===")
+print(f"Nama Barang : {nama_barang}")
+print(f"Stok Akhir  : {stok}")
